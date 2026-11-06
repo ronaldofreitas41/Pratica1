@@ -1,5 +1,6 @@
 package co.inter.piggies.entity;
 
+import io.micronaut.serde.annotation.Serdeable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,6 +9,7 @@ import lombok.Setter;
 
 import java.util.UUID;
 
+@Serdeable
 @Entity
 @Getter
 @Setter
@@ -18,8 +20,9 @@ import java.util.UUID;
 public class Task {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String description;
     private String title;
+    private String status;
 }

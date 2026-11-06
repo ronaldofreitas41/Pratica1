@@ -13,7 +13,7 @@ services:
 
   postgres:
     image: postgres:16-alpine            # mesma imagem do PDF / Testcontainers
-    container_name: piggies-postgres
+    container_name: pratica1-postgres
     environment:
       POSTGRES_DB: piggies
       POSTGRES_USER: piggies
@@ -30,7 +30,7 @@ services:
 
   kafka:
     image: apache/kafka-native:4.3.1     # mesma imagem do PDF / Testcontainers
-    container_name: piggies-kafka
+    container_name: pratica1-kafka
     ports:
       - "9092:9092"                      # usada pela aplicação rodando na sua máquina
     environment:
@@ -61,7 +61,7 @@ services:
   # Só sobe com:  docker compose --profile ui up -d
   kafka-ui:
     image: ghcr.io/kafbat/kafka-ui:latest
-    container_name: piggies-kafka-ui
+    container_name: pratica1-kafka-ui
     profiles: ["ui"]
     depends_on:
       - kafka
